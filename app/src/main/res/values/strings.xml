@@ -1,9 +1,11 @@
 <resources>
     <!-- General information -->
     <string name="app_name">InLife</string>
-    <!-- Bottom navigation button names -->
+    <!-- Bottom navigation strings -->
     <string name="nav_love">Love</string>
     <string name="nav_search">Search</string>
     <string name="nav_messenger">Messenger</string>
     <string name="nav_settings">Settings</string>
+    <!-- Messenger toolbar strings -->
+    <string name="m_toolbar_messages">Messages</string>
 </resources>
