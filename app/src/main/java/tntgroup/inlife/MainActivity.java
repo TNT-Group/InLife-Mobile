@@ -1,6 +1,8 @@
 package tntgroup.inlife;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -23,21 +25,40 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         // Set listener for select action
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            clearFragmentContainer();
             switch (item.getItemId()) {
                 // "Love" was selected
                 case R.id.nav_love:
-                    break;
+                    return true;
                 // "Search" was selected
                 case R.id.nav_search:
-                    break;
+                    return true;
                 // "Messenger" was selected
                 case R.id.nav_messenger:
-                    break;
+                    showMessenger();
+                    return true;
                 // "Settings" was selected
                 case R.id.nav_settings:
-                    break;
+                    return true;
             }
-            return true;
+            return false;
         });
+    }
+
+    private void clearFragmentContainer() {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        for (Fragment fragment : getSupportFragmentManager().getFragments()) {
+            if (fragment != null) {
+                fragmentTransaction.remove(fragment);
+            }
+        }
+        fragmentTransaction.commit();
+        setSupportActionBar(null);
+    }
+
+    private void showMessenger() {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.add(R.id.fragment_container, MessengerFragment.newInstance());
+        fragmentTransaction.commit();
     }
 }

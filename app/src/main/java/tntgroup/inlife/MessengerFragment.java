@@ -1,12 +1,20 @@
 package tntgroup.inlife;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.google.android.material.appbar.AppBarLayout;
 
 /**
  * A subclass of {@link Fragment}
@@ -33,16 +41,43 @@ public class MessengerFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
         Bundle args = getArguments();
         if (args != null) {
             /* Save data from bundle into instance of the class here */
         }
     }
 
+    /**
+     * Inflate the contents of messenger_toolbar_menu.xml into the toolbar
+     */
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, MenuInflater menuInflater) {
+        menuInflater.inflate(R.menu.messenger_toolbar_menu, menu);
+        super.onCreateOptionsMenu(menu, menuInflater);
+    }
+
+    @SuppressLint("NonConstantResourceId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_messenger, container, false);
+        View view = inflater.inflate(R.layout.fragment_messenger, container, false);
+        // Setup toolbar for current activity
+        Toolbar toolbar = view.findViewById(R.id.messenger_toolbar);
+        AppCompatActivity activity = (AppCompatActivity) getActivity();
+        if (activity != null) {
+            activity.setSupportActionBar(toolbar);
+        }
+        // Set listener for
+        toolbar.setOnMenuItemClickListener(item -> {
+            switch (item.getItemId()) {
+                // "Search" was pressed
+                case R.id.m_toolbar_search:
+                    return true;
+            }
+            return false;
+        });
+        return view;
     }
 }

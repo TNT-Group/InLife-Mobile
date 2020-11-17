@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MessengerFragment">
 
-    <!-- AppBarLayout for tool bar -->
+    <!-- AppBarLayout for top app bar -->
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -16,7 +16,8 @@
             android:id="@+id/messenger_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="@string/m_toolbar_messages">
+            app:title="@string/m_toolbar_messages"
+            app:titleTextColor="@color/dark_gray">
         </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>

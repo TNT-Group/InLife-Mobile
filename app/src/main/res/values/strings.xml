@@ -8,4 +8,5 @@
     <string name="nav_settings">Settings</string>
     <!-- Messenger toolbar strings -->
     <string name="m_toolbar_messages">Messages</string>
+    <string name="m_toolbar_search">Search</string>
 </resources>
