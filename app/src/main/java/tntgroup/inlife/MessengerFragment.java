@@ -14,8 +14,6 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.android.material.appbar.AppBarLayout;
-
 /**
  * A subclass of {@link Fragment}
  * "Messenger" window of application
