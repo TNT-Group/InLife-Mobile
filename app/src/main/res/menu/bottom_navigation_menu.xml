@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- Items of bottom navigation menu -->
+    <item
+        android:id="@+id/nav_love"
+        android:icon="@drawable/ic_nav_love_24px"
+        android:title="@string/nav_love" />
+    <item
+        android:id="@+id/nav_search"
+        android:icon="@drawable/ic_nav_search_24px"
+        android:title="@string/nav_search" />
+    <item
+        android:id="@+id/nav_messenger"
+        android:icon="@drawable/ic_nav_messenger_24px"
+        android:title="@string/nav_messenger" />
+    <item
+        android:id="@+id/nav_settings"
+        android:icon="@drawable/ic_nav_settings_24px"
+        android:title="@string/nav_settings" />
+
+</menu>

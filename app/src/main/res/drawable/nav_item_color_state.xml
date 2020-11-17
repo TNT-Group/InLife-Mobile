@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Selector for navigation item state -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- If disabled, color is dark_gray -->
+    <item
+        android:color="@color/dark_gray"
+        android:state_checked="false"/>
+    <!-- Else color is dark_indigo -->
+    <item
+        android:color="@color/dark_indigo"
+        android:state_checked="true"/>
+
+</selector>
