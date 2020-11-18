@@ -98,8 +98,8 @@ public class BottomNavigationFragment extends Fragment {
      * Method for replacing of fragment in container
      * by "Messenger" fragment {@link MessengerFragment}
      *
-     * @param fragmentManager current {@link FragmentManager} of activity
-     * @param fragmentTransaction {@link FragmentTransaction} that was begun
+     * @param fragmentManager current fragment manager of activity
+     * @param fragmentTransaction fragment transaction that was begun
      */
     private void showMessenger(FragmentManager fragmentManager,
                                FragmentTransaction fragmentTransaction) {
@@ -109,13 +109,9 @@ public class BottomNavigationFragment extends Fragment {
         if (previousFragment instanceof MessengerFragment) {
             return;
         }
-        // Remove fragment if it exists
-        if (previousFragment != null) {
-            fragmentTransaction.remove(previousFragment);
-        }
         // DO NOT COMMIT TRANSACTION!
         // It will be committed in listener
-        fragmentTransaction.add(R.id.bottom_navigation_fragment_container,
+        fragmentTransaction.replace(R.id.bottom_navigation_fragment_container,
                 MessengerFragment.newInstance());
     }
 }

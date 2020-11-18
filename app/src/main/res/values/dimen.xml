@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="corner_radius">8dp</dimen>
+    <dimen name="messenger_item_inner_padding">5dp</dimen>
+    <dimen name="messenger_item_margin">10dp</dimen>
+    <dimen name="messenger_list_horizontal_padding">10dp</dimen>
+    <dimen name="messenger_list_vertical_padding">15dp</dimen>
+    <dimen name="stroke_width">2dp</dimen>
+</resources>

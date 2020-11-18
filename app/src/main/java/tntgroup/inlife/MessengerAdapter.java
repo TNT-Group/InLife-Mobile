@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -31,7 +32,7 @@ public class MessengerAdapter extends RecyclerView.Adapter<MessengerAdapter.View
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = inflater.inflate(
-                R.layout.messenger_message_group_item, parent, false);
+                R.layout.messenger_item_layout, parent, false);
         return new ViewHolder(view);
     }
 
@@ -40,6 +41,7 @@ public class MessengerAdapter extends RecyclerView.Adapter<MessengerAdapter.View
         MessageGroup messageGroup = groups.get(position);
         holder.getUserName().setText(messageGroup.getUserName());
         holder.getLastMessage().setText(messageGroup.getLastMessage());
+        holder.getUserAvatar().setImageResource(messageGroup.getUserAvatar());
     }
 
     @Override
@@ -52,13 +54,15 @@ public class MessengerAdapter extends RecyclerView.Adapter<MessengerAdapter.View
      * is defined by object of this class
      */
     public static class ViewHolder extends RecyclerView.ViewHolder {
+        private final ImageView userAvatar;
         private final TextView userName;
         private final TextView lastMessage;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            userName = itemView.findViewById(R.id.messenger_message_group_item_user_name);
-            lastMessage = itemView.findViewById(R.id.messenger_message_group_item_last_message);
+            userAvatar = itemView.findViewById(R.id.messenger_item_user_avatar);
+            userName = itemView.findViewById(R.id.messenger_item_user_name);
+            lastMessage = itemView.findViewById(R.id.messenger_item_last_message);
         }
 
         public TextView getUserName() {
@@ -67,6 +71,10 @@ public class MessengerAdapter extends RecyclerView.Adapter<MessengerAdapter.View
 
         public TextView getLastMessage() {
             return lastMessage;
+        }
+
+        public ImageView getUserAvatar() {
+            return userAvatar;
         }
     }
 }

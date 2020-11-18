@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Messenger (message group list) item layout -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginHorizontal="@dimen/messenger_list_horizontal_padding"
+    android:layout_marginTop="@dimen/messenger_list_vertical_padding"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/messenger_item_shape">
+
+    <!-- User avatar -->
+    <ImageView
+        android:src="@drawable/ic_navigation_love_24px"
+        android:id="@+id/messenger_item_user_avatar"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/messenger_item_margin"
+        android:layout_marginEnd="@dimen/messenger_item_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <!-- User name -->
+    <TextView
+        android:id="@+id/messenger_item_user_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/black"
+        android:layout_marginStart="@dimen/messenger_item_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/messenger_item_user_avatar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Last message -->
+    <TextView
+        android:id="@+id/messenger_item_last_message"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/messenger_item_inner_shape"
+        android:text="@string/app_name"
+        android:textAlignment="textStart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/messenger_item_user_name"
+        app:layout_constraintTop_toBottomOf="@+id/messenger_item_user_name" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Inner shape for messenger item of message group list -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <solid android:color="@color/primary_dark" />
+
+    <corners android:radius="@dimen/corner_radius" />
+
+    <padding
+        android:bottom="@dimen/messenger_item_inner_padding"
+        android:left="@dimen/messenger_item_inner_padding"
+        android:right="@dimen/messenger_item_inner_padding"
+        android:top="@dimen/messenger_item_inner_padding" />
+
+</shape>

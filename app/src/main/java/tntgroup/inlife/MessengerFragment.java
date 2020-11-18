@@ -68,9 +68,23 @@ public class MessengerFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_messenger, container, false);
 
-        // Setup top app bar for current activity
-        Toolbar toolbar = view.findViewById(R.id.messenger_toolbar);
+        // Get current activity
         AppCompatActivity activity = (AppCompatActivity) getActivity();
+
+        setupToolbar(view, activity);
+        setupMessageGroupList(view);
+
+        return view;
+    }
+
+    /**
+     * Method for setting up a top app bar of fragment
+     *
+     * @param view inflated view in method {@link MessengerFragment#onCreateView}
+     * @param activity current activity of fragment
+     */
+    private void setupToolbar(View view, AppCompatActivity activity) {
+        Toolbar toolbar = view.findViewById(R.id.messenger_toolbar);
         if (activity != null) {
             activity.setSupportActionBar(toolbar);
         }
@@ -84,19 +98,25 @@ public class MessengerFragment extends Fragment {
             }
             return false;
         });
+    }
 
-        // Set data for list of message groups
+    /**
+     * Method for setting up a list of message groups
+     *
+     * @param view inflated view in method {@link MessengerFragment#onCreateView}
+     */
+    private void setupMessageGroupList(View view) {
         RecyclerView recyclerView = view.findViewById(R.id.messenger_list);
         MessageGroup messageGroup = new MessageGroup(
-                0, "Haha!",
+                0, "Hello World!",
                 false, "Tugushev Timur",
                 R.drawable.ic_messenger_toolbar_search
         );
         MessengerAdapter adapter = new MessengerAdapter(view.getContext(), Arrays.asList(
+                messageGroup, messageGroup, messageGroup, messageGroup,
+                messageGroup, messageGroup, messageGroup, messageGroup,
                 messageGroup, messageGroup, messageGroup, messageGroup
         ));
         recyclerView.setAdapter(adapter);
-
-        return view;
     }
 }
