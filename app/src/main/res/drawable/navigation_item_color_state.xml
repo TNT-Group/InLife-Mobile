@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Selector for navigation item state -->
+<!-- Selector for bottom navigation item state -->
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- If disabled, color is dark_gray -->
