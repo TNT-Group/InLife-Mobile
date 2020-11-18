@@ -3,20 +3,20 @@
 
     <!-- Items of bottom navigation menu -->
     <item
-        android:id="@+id/nav_love"
-        android:icon="@drawable/ic_nav_love_24px"
-        android:title="@string/nav_love" />
+        android:id="@+id/navigation_love"
+        android:icon="@drawable/ic_navigation_love_24px"
+        android:title="@string/navigation_love" />
     <item
-        android:id="@+id/nav_search"
-        android:icon="@drawable/ic_nav_search_24px"
-        android:title="@string/nav_search" />
+        android:id="@+id/navigation_search"
+        android:icon="@drawable/ic_navigation_search_24px"
+        android:title="@string/navigation_search" />
     <item
-        android:id="@+id/nav_messenger"
-        android:icon="@drawable/ic_nav_messenger_24px"
-        android:title="@string/nav_messenger" />
+        android:id="@+id/navigation_messenger"
+        android:icon="@drawable/ic_navigation_messenger_24px"
+        android:title="@string/navigation_messenger" />
     <item
-        android:id="@+id/nav_settings"
-        android:icon="@drawable/ic_nav_settings_24px"
-        android:title="@string/nav_settings" />
+        android:id="@+id/navigation_settings"
+        android:icon="@drawable/ic_navigation_settings_24px"
+        android:title="@string/navigation_settings" />
 
 </menu>

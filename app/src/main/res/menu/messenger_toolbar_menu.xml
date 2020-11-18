@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/m_toolbar_search"
+        android:id="@+id/messenger_toolbar_search"
         app:showAsAction="always"
         android:icon="@drawable/ic_messenger_toolbar_search"
-        android:title="@string/m_toolbar_search"/>
+        android:title="@string/messenger_toolbar_search"/>
 
 </menu>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,18 +9,26 @@
 
     <!-- AppBarLayout for top app bar -->
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
 
         <!-- Tool bar -->
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/messenger_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="@string/m_toolbar_messages"
-            app:titleTextColor="@color/dark_gray">
-        </androidx.appcompat.widget.Toolbar>
+            app:title="@string/messenger_toolbar_messages"
+            app:titleTextColor="@color/dark_gray" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
-</FrameLayout>
+    <!-- RecyclerView for message groups -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/messenger_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -14,9 +15,14 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.Arrays;
+
 /**
- * A subclass of {@link Fragment}
+ * A {@link Fragment} subclass which represents
  * "Messenger" window of application
+ *
+ * This fragment must have bottom navigation bar,
+ * so it is located inside of bottom_navigation_fragment_container
  */
 public class MessengerFragment extends Fragment {
 
@@ -61,21 +67,36 @@ public class MessengerFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_messenger, container, false);
-        // Setup toolbar for current activity
+
+        // Setup top app bar for current activity
         Toolbar toolbar = view.findViewById(R.id.messenger_toolbar);
         AppCompatActivity activity = (AppCompatActivity) getActivity();
         if (activity != null) {
             activity.setSupportActionBar(toolbar);
         }
-        // Set listener for
+
+        // Set listener for top app bar
         toolbar.setOnMenuItemClickListener(item -> {
             switch (item.getItemId()) {
                 // "Search" was pressed
-                case R.id.m_toolbar_search:
+                case R.id.messenger_toolbar_search:
                     return true;
             }
             return false;
         });
+
+        // Set data for list of message groups
+        RecyclerView recyclerView = view.findViewById(R.id.messenger_list);
+        MessageGroup messageGroup = new MessageGroup(
+                0, "Haha!",
+                false, "Tugushev Timur",
+                R.drawable.ic_messenger_toolbar_search
+        );
+        MessengerAdapter adapter = new MessengerAdapter(view.getContext(), Arrays.asList(
+                messageGroup, messageGroup, messageGroup, messageGroup
+        ));
+        recyclerView.setAdapter(adapter);
+
         return view;
     }
 }

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- User name -->
+    <TextView
+        android:id="@+id/messenger_message_group_item_user_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"/>
+
+    <!-- Last message -->
+    <TextView
+        android:id="@+id/messenger_message_group_item_last_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"/>
+
+</LinearLayout>
