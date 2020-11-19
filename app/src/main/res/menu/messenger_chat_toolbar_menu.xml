@@ -5,8 +5,14 @@
 
     <item
         android:id="@+id/messenger_chat_toolbar_search"
-        android:icon="@drawable/ic_messenger_toolbar_search"
+        android:icon="@drawable/ic_navigation_search"
         android:title="@string/messenger_toolbar_search"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/messenger_chat_toolbar_overflow_menu"
+        android:icon="@drawable/ic_messenger_chat_menu_dots"
+        android:title="@string/messenger_chat_toolbar_overflow_menu"
         app:showAsAction="ifRoom" />
 
 </menu>

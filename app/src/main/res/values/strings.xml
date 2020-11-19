@@ -9,4 +9,6 @@
     <!-- Messenger toolbar strings -->
     <string name="messenger_toolbar_messages">Messages</string>
     <string name="messenger_toolbar_search">Search</string>
+    <!-- Messenger chat toolbar strings -->
+    <string name="messenger_chat_toolbar_overflow_menu">Menu</string>
 </resources>
