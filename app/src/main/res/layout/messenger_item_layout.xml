@@ -13,7 +13,7 @@
 
     <!-- User avatar -->
     <ImageView
-        android:src="@drawable/ic_navigation_love_24px"
+        android:src="@drawable/ic_navigation_love"
         android:id="@+id/messenger_item_user_avatar"
         android:layout_width="wrap_content"
         android:layout_height="0dp"

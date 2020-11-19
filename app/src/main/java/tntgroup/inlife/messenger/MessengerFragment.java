@@ -54,7 +54,7 @@ public class MessengerFragment extends Fragment {
     }
 
     /**
-     * Inflate the contents of messenger_toolbar_menu.xml into the toolbar
+     * Inflate the contents of messenger_toolbar_menu into the toolbar
      */
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, MenuInflater menuInflater) {
@@ -68,10 +68,8 @@ public class MessengerFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_messenger, container, false);
 
-        // Get current activity
-        AppCompatActivity activity = (AppCompatActivity) getActivity();
-
-        setupToolbar(view, activity);
+        // Setup fragment elements
+        setupToolbar(view);
         setupMessageGroupList(view);
 
         return view;
@@ -81,10 +79,10 @@ public class MessengerFragment extends Fragment {
      * Method for setting up a top app bar of fragment
      *
      * @param view inflated view in method {@link MessengerFragment#onCreateView}
-     * @param activity current activity of fragment
      */
     @SuppressLint("NonConstantResourceId")
-    private void setupToolbar(View view, AppCompatActivity activity) {
+    private void setupToolbar(View view) {
+        AppCompatActivity activity = (AppCompatActivity) getActivity();
         Toolbar toolbar = view.findViewById(R.id.messenger_toolbar);
         if (activity != null) {
             activity.setSupportActionBar(toolbar);
@@ -93,7 +91,6 @@ public class MessengerFragment extends Fragment {
         // Set listener for top app bar
         toolbar.setOnMenuItemClickListener(item -> {
             switch (item.getItemId()) {
-                // "Search" was pressed
                 case R.id.messenger_toolbar_search:
                     return true;
             }

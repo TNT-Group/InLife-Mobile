@@ -43,7 +43,7 @@ public class Database {
         MessageGroup messageGroup = new MessageGroup(
                 0, "Hello World!",
                 false, "Surname Name",
-                R.drawable.ic_navigation_love_24px
+                R.drawable.ic_navigation_love
         );
         return Arrays.asList(
                 messageGroup, messageGroup, messageGroup, messageGroup,

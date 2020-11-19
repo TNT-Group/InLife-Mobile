@@ -14,6 +14,7 @@
         <!-- Status bar color -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here -->
+        <item name="colorAccent">@color/dark_indigo</item>
         <item name="android:windowBackground">@android:color/white</item>
         <item name="colorSurface">@color/primary</item>
         <item name="colorOnSurface">@color/dark_gray</item>
