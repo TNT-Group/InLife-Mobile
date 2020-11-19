@@ -1,4 +1,4 @@
-package tntgroup.inlife;
+package tntgroup.inlife.messenger;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -15,8 +15,8 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import tntgroup.inlife.data.Database;
-import tntgroup.inlife.data.MessengerAdapter;
+import tntgroup.inlife.R;
+import tntgroup.inlife.database.Database;
 
 /**
  * A {@link Fragment} subclass which represents
