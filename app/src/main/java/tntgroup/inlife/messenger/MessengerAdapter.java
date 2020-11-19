@@ -1,4 +1,4 @@
-package tntgroup.inlife.data;
+package tntgroup.inlife.messenger;
 
 import android.content.Context;
 import android.view.LayoutInflater;

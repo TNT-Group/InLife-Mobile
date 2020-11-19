@@ -1,7 +1,7 @@
-package tntgroup.inlife.data;
+package tntgroup.inlife.messenger;
 
 /**
- * Class for holding data to show in messenger
+ * Class for holding data to show in messenger list
  */
 public class MessageGroup {
 

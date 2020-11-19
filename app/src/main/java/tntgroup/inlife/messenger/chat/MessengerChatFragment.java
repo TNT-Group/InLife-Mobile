@@ -1,4 +1,4 @@
-package tntgroup.inlife;
+package tntgroup.inlife.messenger.chat;
 
 import android.os.Bundle;
 
@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import tntgroup.inlife.R;
 
 /**
  * A {@link Fragment} subclass for messenger chat

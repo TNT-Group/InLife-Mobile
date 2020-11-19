@@ -13,6 +13,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import tntgroup.inlife.messenger.MessengerFragment;
+
 /**
  * A {@link Fragment} subclass which holds another fragments
  * that need {@link BottomNavigationView} at the bottom
