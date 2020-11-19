@@ -53,15 +53,6 @@ public class MessengerFragment extends Fragment {
         }
     }
 
-    /**
-     * Inflate the contents of messenger_toolbar_menu into the toolbar
-     */
-    @Override
-    public void onCreateOptionsMenu(@NonNull Menu menu, MenuInflater menuInflater) {
-        menuInflater.inflate(R.menu.messenger_toolbar_menu, menu);
-        super.onCreateOptionsMenu(menu, menuInflater);
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -82,12 +73,7 @@ public class MessengerFragment extends Fragment {
      */
     @SuppressLint("NonConstantResourceId")
     private void setupToolbar(View view) {
-        AppCompatActivity activity = (AppCompatActivity) getActivity();
-        Toolbar toolbar = view.findViewById(R.id.messenger_toolbar);
-        if (activity != null) {
-            activity.setSupportActionBar(toolbar);
-        }
-
+        final Toolbar toolbar = view.findViewById(R.id.messenger_toolbar);
         // Set listener for top app bar
         toolbar.setOnMenuItemClickListener(item -> {
             switch (item.getItemId()) {
@@ -104,8 +90,8 @@ public class MessengerFragment extends Fragment {
      * @param view inflated view in method {@link MessengerFragment#onCreateView}
      */
     private void setupMessageGroupList(View view) {
-        RecyclerView recyclerView = view.findViewById(R.id.messenger_list);
-        MessengerAdapter adapter = new MessengerAdapter(view.getContext(),
+        final RecyclerView recyclerView = view.findViewById(R.id.messenger_list);
+        final MessengerAdapter adapter = new MessengerAdapter(view.getContext(),
                 Database.getInstance().getMessageGroups());
         recyclerView.setAdapter(adapter);
     }

@@ -53,15 +53,6 @@ public class MessengerChatFragment extends Fragment {
         }
     }
 
-    /**
-     * Inflate the contents of messenger_toolbar_menu into the toolbar
-     */
-    @Override
-    public void onCreateOptionsMenu(@NonNull Menu menu, MenuInflater menuInflater) {
-        menuInflater.inflate(R.menu.messenger_chat_toolbar_menu, menu);
-        super.onCreateOptionsMenu(menu, menuInflater);
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -84,8 +75,7 @@ public class MessengerChatFragment extends Fragment {
         final AppCompatActivity activity = (AppCompatActivity) getActivity();
         final Toolbar toolbar = view.findViewById(R.id.messenger_chat_toolbar);
         if (activity != null) {
-            activity.setSupportActionBar(toolbar);
-            ActionBar actionBar = activity.getSupportActionBar();
+            final ActionBar actionBar = activity.getSupportActionBar();
             if (actionBar != null) {
                 actionBar.setDisplayShowTitleEnabled(false);
             }
@@ -99,6 +89,7 @@ public class MessengerChatFragment extends Fragment {
             }
             return false;
         });
+
         // Set navigation icon listener for top app bar
         // (actually, implement "back" behaviour of navigation icon)
         toolbar.setNavigationOnClickListener(v -> {

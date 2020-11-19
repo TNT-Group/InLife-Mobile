@@ -15,12 +15,17 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <!-- Tool bar -->
-        <androidx.appcompat.widget.Toolbar
+        <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/messenger_chat_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:navigationIcon="@drawable/ic_arrow_back"
-            app:titleTextColor="@color/dark_gray" />
+            app:menu="@menu/messenger_chat_toolbar_menu"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary">
+
+            <!-- Place elements inside toolbar here -->
+
+        </com.google.android.material.appbar.MaterialToolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
 
