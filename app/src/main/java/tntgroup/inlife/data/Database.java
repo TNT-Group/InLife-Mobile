@@ -1,7 +1,10 @@
-package tntgroup.inlife;
+package tntgroup.inlife.data;
 
 import java.util.Arrays;
 import java.util.List;
+
+import tntgroup.inlife.MessengerFragment;
+import tntgroup.inlife.R;
 
 /**
  * Singleton for database of application
@@ -42,6 +45,8 @@ public class Database {
                 R.drawable.ic_navigation_love_24px
         );
         return Arrays.asList(
+                messageGroup, messageGroup, messageGroup, messageGroup,
+                messageGroup, messageGroup, messageGroup, messageGroup,
                 messageGroup, messageGroup, messageGroup, messageGroup,
                 messageGroup, messageGroup, messageGroup, messageGroup,
                 messageGroup, messageGroup, messageGroup, messageGroup

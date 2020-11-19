@@ -1,4 +1,4 @@
-package tntgroup.inlife;
+package tntgroup.inlife.data;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
+
+import tntgroup.inlife.R;
 
 /**
  * Class of adapter for RecyclerView object in "Messenger" message group list

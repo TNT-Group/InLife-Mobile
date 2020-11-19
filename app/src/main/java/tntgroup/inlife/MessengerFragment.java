@@ -15,7 +15,8 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.Arrays;
+import tntgroup.inlife.data.Database;
+import tntgroup.inlife.data.MessengerAdapter;
 
 /**
  * A {@link Fragment} subclass which represents

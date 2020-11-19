@@ -1,4 +1,4 @@
-package tntgroup.inlife;
+package tntgroup.inlife.data;
 
 /**
  * Class for holding data to show in messenger
