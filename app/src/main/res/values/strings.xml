@@ -9,4 +9,6 @@
     <!-- Messenger toolbar strings -->
     <string name="messenger_toolbar_messages">Messages</string>
     <string name="messenger_toolbar_search">Search</string>
+    <!-- MessengerChat bottom bar strings -->
+    <string name="messenger_chat_bottom_bar_massage_hint">Введите сообщение</string>
 </resources>

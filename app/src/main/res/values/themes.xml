@@ -20,4 +20,21 @@
         <item name="android:colorEdgeEffect">@color/dark_gray</item>
     </style>
 
+    <!-- Theme for btns in bottom panel in messenger chat -->
+    <style name="Theme.InLife.Btns" parent="Theme.InLife">
+        <item name="iconTint">@color/btn_icon_tint</item>
+        <item name="android:stateListAnimator">@null</item> <!-- Delete shadow -->
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">0dp</item>
+        <item name="android:background">@color/transparent</item> <!-- Delete press animation -->
+    </style>
+
+    <!-- Theme for text input field in bottom panel in messenger chat -->
+    <style name="Theme.InLife.Input" parent="Theme.InLife">
+        <item name="android:ems">10</item>
+        <item name="android:inputType">textMultiLine</item>
+        <item name="maxLines">5</item>
+    </style>
+
+
 </resources>
