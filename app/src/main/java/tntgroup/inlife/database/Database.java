@@ -1,9 +1,10 @@
-package tntgroup.inlife.data;
+package tntgroup.inlife.database;
 
 import java.util.Arrays;
 import java.util.List;
 
-import tntgroup.inlife.MessengerFragment;
+import tntgroup.inlife.messenger.MessageGroup;
+import tntgroup.inlife.messenger.MessengerFragment;
 import tntgroup.inlife.R;
 
 /**
