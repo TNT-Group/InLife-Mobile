@@ -4,6 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".messenger.chat.MessengerChatFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".messenger.MessengerFragment">
+
+    <!-- RecyclerView for messenger chat -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/messages_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/messenger_list_vertical_padding"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
