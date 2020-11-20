@@ -53,4 +53,66 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+    <!-- Bottom toolbar for message input -->
+    <LinearLayout
+        android:id="@+id/message_bottom_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- Button for additions -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/additions"
+            style="@style/Theme.InLife.Btns"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            app:icon="@drawable/ic_additions_16px"
+            app:layout_constraintBottom_toTopOf="@+id/message_bottom_panel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!-- Text field for message -->
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/message"
+            android:backgroundTint="@color/abs_white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:inputType="textMultiLine"
+            android:maxLines="5"
+            android:hint="@string/messenger_chat_bottom_bar_massage_hint" />
+
+        <!-- Button for emojis -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/smile"
+            style="@style/Theme.InLife.Btns"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            app:icon="@drawable/ic_smile_16px"
+            app:layout_constraintBottom_toTopOf="@+id/message_bottom_panel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!-- Button for voice input -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/voice"
+            style="@style/Theme.InLife.Btns"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            app:icon="@drawable/ic_voice_16px"
+            app:layout_constraintBottom_toTopOf="@+id/message_bottom_panel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

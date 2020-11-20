@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -133,5 +135,36 @@ public class MessengerChatFragment extends Fragment {
             messageList.add(new Message(text1, "00:00", i % 2 == 0));
         }
         return messageList;
+    }
+
+    /**
+     * A lass for bottom panel in messenger chat
+     */
+    private class BottomPanel {
+        private Button smile;
+        private Button additions;
+        private Button voice;
+
+        private EditText message;
+
+        BottomPanel(View rootView)
+        {
+            smile = rootView.findViewById(R.id.smile);
+            smile.setOnClickListener(v -> onSmileClick());
+            additions = rootView.findViewById(R.id.additions);
+            additions.setOnClickListener(v -> onAdditionsClick());
+            voice = rootView.findViewById(R.id.voice);
+            voice.setOnClickListener(v -> onVoiceClick());
+            message = rootView.findViewById(R.id.message);
+        }
+
+        public void onSmileClick()
+        {}
+        public void onAdditionsClick()
+        {}
+        public void onVoiceClick()
+        {}
+
+
     }
 }

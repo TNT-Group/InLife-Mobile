@@ -8,4 +8,8 @@
     <color name="dark_indigo">#FF310062</color> <!-- Sexy dark indigo -->
     <color name="dark_gray">#FF696969</color> <!-- test5 -->
     <color name="gray">#FFC4C4C4</color>
+
+    <!-- Added by Nikita -->
+    <color name="abs_white">#FFFFFFFF</color>
+    <color name="transparent">#00FFFFFF</color>
 </resources>
