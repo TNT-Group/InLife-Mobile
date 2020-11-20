@@ -3,42 +3,44 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/message_container"
     android:layout_marginHorizontal="@dimen/messenger_list_horizontal_padding"
     android:layout_marginTop="@dimen/messenger_list_vertical_padding"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:layout_height="wrap_content"
-    android:background="@drawable/received_message_item_shape"
-    android:maxWidth="250dp">
+    android:layout_height="wrap_content">
 
-        <!-- Message text -->
-        <TextView
-            android:id="@+id/message_text"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/app_name"
-            android:textColor="@android:color/white"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/message_sending_time"
-            android:paddingStart="5dp"
-            android:paddingEnd="0dp"
-            android:paddingTop="5dp"/>
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:orientation="vertical"
+            android:background="@drawable/received_message_item_shape">
+                <!-- Message text -->
+                <TextView
+                    android:id="@+id/message_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_name"
+                    android:textColor="@android:color/white"
+                    android:paddingHorizontal="5dp"
+                    android:paddingTop="5dp"
+                    android:maxWidth="250dp"
+                    />
 
-        <!-- Sending time -->
-        <TextView
-            android:id="@+id/message_sending_time"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/app_name"
-            android:textAlignment="textEnd"
-            android:textColor="@color/gray"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/message_text"
-            android:paddingHorizontal="5dp"/>
-
+                <!-- Sending time -->
+                <TextView
+                    android:id="@+id/message_sending_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_name"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/gray"
+                    android:layout_gravity="end"
+                    android:paddingHorizontal="5dp"
+                    />
+        </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
