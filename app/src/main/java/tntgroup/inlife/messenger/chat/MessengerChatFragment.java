@@ -13,7 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import tntgroup.inlife.R;
@@ -33,7 +33,6 @@ public class MessengerChatFragment extends Fragment {
      * ID of user you are chatting with
      */
     private String userId;
-    private List<Message> messages = getMessageList();
 
     /**
      * Use this factory method to create a new instance of
@@ -114,12 +113,12 @@ public class MessengerChatFragment extends Fragment {
      */
     private void setupMessageList(View view) {
         RecyclerView recyclerView = view.findViewById(R.id.messages_list);
-        MessengerChatAdapter adapter = new MessengerChatAdapter(messages);
+        MessengerChatAdapter adapter = new MessengerChatAdapter(getMessageList());
         recyclerView.setAdapter(adapter);
     }
 
     private List<Message> getMessageList() {
-        List<Message> messageList = new ArrayList<>();
+        List<Message> messageList = new LinkedList<>();
         String text1 = "RecyclerView makes it easy to efficiently " +
                 "display large sets of data. You supply the data and" +
                 " define how each item looks, and the RecyclerView library" +
@@ -129,8 +128,7 @@ public class MessengerChatFragment extends Fragment {
                 "elements. When an item scrolls off the screen, RecyclerView doesn't" +
                 " destroy its view. Instead, RecyclerView reuses the view for new items" +
                 " that have scrolled onscreen. This reuse vastly improves performance, " +
-                "improving your app's responsiveness and reducing power consumption. ",
-        text2 = "Sent message";
+                "improving your app's responsiveness and reducing power consumption. ";
         for (int i = 1; i < 21; i++) {
             messageList.add(new Message(text1, "00:00", i % 2 == 0));
         }

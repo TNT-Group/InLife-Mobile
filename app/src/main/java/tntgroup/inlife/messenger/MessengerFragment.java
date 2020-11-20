@@ -2,21 +2,18 @@ package tntgroup.inlife.messenger;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import java.util.Arrays;
+import java.util.List;
 
 import tntgroup.inlife.R;
-import tntgroup.inlife.database.Database;
 
 /**
  * A {@link Fragment} subclass which represents
@@ -91,8 +88,31 @@ public class MessengerFragment extends Fragment {
      */
     private void setupMessageGroupList(View view) {
         final RecyclerView recyclerView = view.findViewById(R.id.messenger_list);
-        final MessengerAdapter adapter = new MessengerAdapter(view.getContext(),
-                Database.getInstance().getMessageGroups());
+        final MessengerAdapter adapter = new MessengerAdapter(
+                view.getContext(), getMessageGroups()
+        );
         recyclerView.setAdapter(adapter);
+    }
+
+    /**
+     * Get message groups for {@link MessengerFragment}'s
+     * list (which is {@link androidx.recyclerview.widget.RecyclerView})
+     * for current user
+     *
+     * @return list of message groups
+     */
+    public List<MessageGroup> getMessageGroups() {
+        MessageGroup messageGroup = new MessageGroup(
+                0, "Hello World!",
+                false, "Surname Name",
+                R.drawable.ic_navigation_love
+        );
+        return Arrays.asList(
+                messageGroup, messageGroup, messageGroup, messageGroup,
+                messageGroup, messageGroup, messageGroup, messageGroup,
+                messageGroup, messageGroup, messageGroup, messageGroup,
+                messageGroup, messageGroup, messageGroup, messageGroup,
+                messageGroup, messageGroup, messageGroup, messageGroup
+        );
     }
 }

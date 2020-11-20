@@ -1,7 +1,7 @@
 package tntgroup.inlife.messenger.chat;
 
 public class Message {
-    private final String text;
+    private String text;
     private final String sendingTime;
     private final boolean received;
 
@@ -15,11 +15,15 @@ public class Message {
         return sendingTime;
     }
 
+    public boolean isReceived() {
+        return received;
+    }
+
     public String getText() {
         return text;
     }
 
-    public boolean isReceived() {
-        return received;
+    public void setText(String text) {
+        this.text = text;
     }
 }

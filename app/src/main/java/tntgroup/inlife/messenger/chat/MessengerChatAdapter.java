@@ -12,55 +12,40 @@ import java.util.List;
 
 import tntgroup.inlife.R;
 
-public class MessengerChatAdapter extends RecyclerView.Adapter{
+public class MessengerChatAdapter
+        extends RecyclerView.Adapter<MessengerChatAdapter.MessageViewHolder> {
 
     private static final int VIEW_TYPE_MESSAGE_SENT = 1;
     private static final int VIEW_TYPE_MESSAGE_RECEIVED = 2;
 
-    private List<Message> messages;
+    private final List<Message> messages;
 
-    public MessengerChatAdapter(List<Message> dataSet) {
-        this.messages = dataSet;
+    public MessengerChatAdapter(List<Message> messages) {
+        this.messages = messages;
     }
 
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view;
-        if (viewType == VIEW_TYPE_MESSAGE_SENT) {
-            view = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.message_layout_sent, parent, false);
-            return new SentMessageViewHolder(view);
-        } else if (viewType == VIEW_TYPE_MESSAGE_RECEIVED) {
-            view = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.message_layout_received, parent, false);
-            return new ReceivedMessageViewHolder(view);
-        }
-        return null;
+    public MessageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(
+                viewType == VIEW_TYPE_MESSAGE_SENT
+                        ? R.layout.message_layout_sent
+                        : R.layout.message_layout_received,
+                parent, false
+        );
+        return new MessageViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        switch (getItemViewType(position)) {
-            case VIEW_TYPE_MESSAGE_SENT:
-                ((SentMessageViewHolder) holder).bind(messages.get(position));
-                break;
-            case VIEW_TYPE_MESSAGE_RECEIVED:
-                ((ReceivedMessageViewHolder) holder).bind(messages.get(position));
-        }
+    public void onBindViewHolder(@NonNull MessageViewHolder holder, int position) {
+        Message message = messages.get(position);
+        holder.bind(message);
     }
 
     @Override
     public int getItemViewType(int position) {
         Message message = messages.get(position);
-
-        if (message.isReceived()) {
-            // If the current user is the sender of the message
-            return VIEW_TYPE_MESSAGE_RECEIVED;
-        } else {
-            // If some other user sent the message
-            return VIEW_TYPE_MESSAGE_SENT;
-        }
+        return message.isReceived() ? VIEW_TYPE_MESSAGE_RECEIVED : VIEW_TYPE_MESSAGE_SENT;
     }
 
     @Override
@@ -68,25 +53,10 @@ public class MessengerChatAdapter extends RecyclerView.Adapter{
         return messages.size();
     }
 
-    public static class SentMessageViewHolder extends RecyclerView.ViewHolder{
-        private final TextView text, sendingTime;
+    public static class MessageViewHolder extends RecyclerView.ViewHolder {
+        protected final TextView text, sendingTime;
 
-        public SentMessageViewHolder(@NonNull View itemView) {
-            super(itemView);
-            this.text = itemView.findViewById(R.id.message_text);
-            this.sendingTime = itemView.findViewById(R.id.message_sending_time);
-        }
-
-        public void bind(Message message) {
-            text.setText(message.getText());
-            sendingTime.setText(message.getSendingTime());
-        }
-    }
-
-    public static class ReceivedMessageViewHolder extends RecyclerView.ViewHolder{
-        private final TextView text, sendingTime;
-
-        public ReceivedMessageViewHolder(@NonNull View itemView) {
+        public MessageViewHolder(@NonNull View itemView) {
             super(itemView);
             this.text = itemView.findViewById(R.id.message_text);
             this.sendingTime = itemView.findViewById(R.id.message_sending_time);

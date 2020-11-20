@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Chat message shape -->
+<!-- Shape for messenger item of message group list
+        and for chat message item of sent message -->
 <shape
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <solid android:color="@android:color/black" />
+    <solid android:color="@color/primary" />
 
     <corners android:radius="@dimen/corner_radius" />
 

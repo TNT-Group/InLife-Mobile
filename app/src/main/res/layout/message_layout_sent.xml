@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Chat item layout -->
+<!-- Chat item layout of sent message -->
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/message_container"
     android:layout_marginHorizontal="@dimen/messenger_list_horizontal_padding"
     android:layout_marginTop="@dimen/messenger_list_vertical_padding"
@@ -17,9 +16,10 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             android:orientation="vertical"
-            android:background="@drawable/sent_message_item_shape">
+            android:background="@drawable/item_shape_primary">
+
                 <!-- Message text -->
-                <TextView
+                <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/message_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -27,20 +27,19 @@
                     android:textColor="@android:color/black"
                     android:paddingHorizontal="5dp"
                     android:paddingTop="5dp"
-                    android:maxWidth="250dp"
-                    />
+                    android:maxWidth="250dp" />
 
                 <!-- Sending time -->
-                <TextView
+                <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/message_sending_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/app_name"
+                    android:textStyle="italic"
                     android:textAlignment="textEnd"
-                    android:textColor="@color/dark_gray"
                     android:layout_gravity="end"
-                    android:paddingHorizontal="5dp"
-                    />
+                    android:paddingHorizontal="5dp" />
+
         </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
