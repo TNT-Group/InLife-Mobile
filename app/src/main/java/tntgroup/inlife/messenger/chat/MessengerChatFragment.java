@@ -7,13 +7,16 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import tntgroup.inlife.R;
-import tntgroup.inlife.messenger.MessengerFragment;
 
 /**
  * A {@link Fragment} subclass for messenger chat
@@ -30,6 +33,7 @@ public class MessengerChatFragment extends Fragment {
      * ID of user you are chatting with
      */
     private String userId;
+    private List<Message> messages = getMessageList();
 
     /**
      * Use this factory method to create a new instance of
@@ -59,11 +63,11 @@ public class MessengerChatFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(
-                R.layout.fragment_messenger_chat, container, false);
+        View view = inflater.inflate(R.layout.fragment_messenger_chat, container, false);
 
         // Setup fragment elements
         setupToolbar(view);
+        setupMessageList(view);
 
         return view;
     }
@@ -101,5 +105,35 @@ public class MessengerChatFragment extends Fragment {
                 activity.onBackPressed();
             }
         });
+    }
+
+    /**
+     * Method for setting up a message list
+     *
+     * @param view inflated view in method {@link MessengerChatFragment#onCreateView}
+     */
+    private void setupMessageList(View view) {
+        RecyclerView recyclerView = view.findViewById(R.id.messages_list);
+        MessengerChatAdapter adapter = new MessengerChatAdapter(messages);
+        recyclerView.setAdapter(adapter);
+    }
+
+    private List<Message> getMessageList() {
+        List<Message> messageList = new ArrayList<>();
+        String text1 = "RecyclerView makes it easy to efficiently " +
+                "display large sets of data. You supply the data and" +
+                " define how each item looks, and the RecyclerView library" +
+                " dynamically creates the elements when they're needed.\n" +
+                "\n" +
+                "As the name implies, RecyclerView recycles those individual " +
+                "elements. When an item scrolls off the screen, RecyclerView doesn't" +
+                " destroy its view. Instead, RecyclerView reuses the view for new items" +
+                " that have scrolled onscreen. This reuse vastly improves performance, " +
+                "improving your app's responsiveness and reducing power consumption. ",
+        text2 = "Sent message";
+        for (int i = 1; i < 21; i++) {
+            messageList.add(new Message(text1, "00:00", i % 2 == 0));
+        }
+        return messageList;
     }
 }
