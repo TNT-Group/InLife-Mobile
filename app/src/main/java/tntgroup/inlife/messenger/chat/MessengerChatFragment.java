@@ -21,7 +21,7 @@ import tntgroup.inlife.messenger.MessengerFragment;
 public class MessengerChatFragment extends Fragment {
 
     /**
-     * Key to get {@link userId} parameter
+     * Key to get userId parameter
      * of fragment from the {@link Bundle}
      */
     private static final String USER_ID_KEY = "userId";
