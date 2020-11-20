@@ -13,8 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import tntgroup.inlife.R;
-import tntgroup.inlife.database.Database;
-import tntgroup.inlife.messenger.MessengerAdapter;
 
 /**
  * A {@link Fragment} subclass for messenger chat
@@ -63,8 +61,18 @@ public class MessengerChatFragment extends Fragment {
 
     private List<Message> getMessageList() {
         List<Message> messageList = new ArrayList<>();
+        String text = "RecyclerView makes it easy to efficiently " +
+                "display large sets of data. You supply the data and" +
+                " define how each item looks, and the RecyclerView library" +
+                " dynamically creates the elements when they're needed.\n" +
+                "\n" +
+                "As the name implies, RecyclerView recycles those individual " +
+                "elements. When an item scrolls off the screen, RecyclerView doesn't" +
+                " destroy its view. Instead, RecyclerView reuses the view for new items" +
+                " that have scrolled onscreen. This reuse vastly improves performance, " +
+                "improving your app's responsiveness and reducing power consumption. ";
         for (int i = 1; i < 21; i++) {
-            messageList.add(new Message("Sent message" + i, "00:00", i % 2 == 0));
+            messageList.add(new Message(text, "00:00", i % 2 == 0));
         }
         return messageList;
     }

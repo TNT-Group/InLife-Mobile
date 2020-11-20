@@ -3,12 +3,12 @@ package tntgroup.inlife.messenger.chat;
 public class Message {
     private final String text;
     private final String sendingTime;
-    private final boolean mine;
+    private final boolean received;
 
-    public Message(String text, String sendingTime, boolean mine) {
+    public Message(String text, String sendingTime, boolean received) {
         this.text = text;
         this.sendingTime = sendingTime;
-        this.mine = mine;
+        this.received = received;
     }
 
     public String getSendingTime() {
@@ -19,7 +19,7 @@ public class Message {
         return text;
     }
 
-    public boolean isMine() {
-        return mine;
+    public boolean isReceived() {
+        return received;
     }
 }

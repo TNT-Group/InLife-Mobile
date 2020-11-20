@@ -16,6 +16,7 @@
         android:paddingBottom="@dimen/messenger_list_vertical_padding"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager" />
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:background="@color/gray"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Chat message shape -->
+<shape
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <solid android:color="@color/primary" />
+
+    <corners android:radius="@dimen/corner_radius" />
+
+    <padding
+        android:bottom="@dimen/messenger_item_inner_padding"
+        android:left="@dimen/messenger_item_inner_padding"
+        android:right="@dimen/messenger_item_inner_padding"
+        android:top="@dimen/messenger_item_inner_padding" />
+
+</shape>
