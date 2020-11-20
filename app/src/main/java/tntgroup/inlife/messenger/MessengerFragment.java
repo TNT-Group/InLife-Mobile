@@ -3,6 +3,7 @@ package tntgroup.inlife.messenger;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -68,17 +69,25 @@ public class MessengerFragment extends Fragment {
      *
      * @param view inflated view in method {@link MessengerFragment#onCreateView}
      */
-    @SuppressLint("NonConstantResourceId")
     private void setupToolbar(View view) {
         final Toolbar toolbar = view.findViewById(R.id.messenger_toolbar);
         // Set listener for top app bar
-        toolbar.setOnMenuItemClickListener(item -> {
-            switch (item.getItemId()) {
-                case R.id.messenger_toolbar_search:
-                    return true;
-            }
-            return false;
-        });
+        toolbar.setOnMenuItemClickListener(this::onTopToolbarItemClick);
+    }
+
+    /**
+     * Listener for top toolbar items
+     *
+     * @param item item that was pressed
+     * @return if any item was pressed
+     */
+    @SuppressLint("NonConstantResourceId")
+    private boolean onTopToolbarItemClick(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.messenger_toolbar_search:
+                return true;
+        }
+        return false;
     }
 
     /**

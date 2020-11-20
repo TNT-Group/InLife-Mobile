@@ -16,6 +16,6 @@
     <string name="messenger_chat_toolbar_overflow_menu">Menu</string>
     <string name="messenger_chat_toolbar_user_name">Name Surname</string>
 
-    <!-- MessengerChat bottom bar strings -->
+    <!-- Messenger chat bottom bar strings -->
     <string name="messenger_chat_bottom_bar_message_hint">Input message</string>
 </resources>

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".messenger.MessengerFragment">
+    tools:context=".messenger.chat.MessengerChatFragment">
 
     <!-- RecyclerView for messenger chat -->
     <androidx.recyclerview.widget.RecyclerView
@@ -14,9 +14,9 @@
         android:layout_height="0dp"
         android:clipToPadding="false"
         android:paddingBottom="@dimen/messenger_list_vertical_padding"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/messenger_chat_app_bar_layout"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/messenger_chat_bottom_panel"
+        app:layout_constraintTop_toBottomOf="@+id/messenger_chat_app_bar_layout" />
 
     <!-- AppBarLayout for top app bar -->
     <com.google.android.material.appbar.AppBarLayout
@@ -55,7 +55,7 @@
 
     <!-- Bottom toolbar for message input -->
     <LinearLayout
-        android:id="@+id/message_bottom_panel"
+        android:id="@+id/messenger_chat_bottom_panel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -66,51 +66,51 @@
 
         <!-- Button for additions -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/additions"
-            style="@style/Theme.InLife.Btns"
+            android:id="@+id/messenger_chat_bottom_panel_additions"
+            style="@style/Theme.InLife.Buttons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_weight="1"
-            app:icon="@drawable/ic_additions_16px"
-            app:layout_constraintBottom_toTopOf="@+id/message_bottom_panel"
+            app:icon="@drawable/ic_additions"
+            app:layout_constraintBottom_toTopOf="@+id/messenger_chat_bottom_panel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <!-- Text field for message -->
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/message"
-            android:backgroundTint="@color/abs_white"
+            android:id="@+id/messenger_chat_bottom_panel_edit_text"
+            android:backgroundTint="@color/transparent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="3"
             android:inputType="textMultiLine"
             android:maxLines="5"
-            android:hint="@string/messenger_chat_bottom_bar_massage_hint" />
+            android:hint="@string/messenger_chat_bottom_bar_message_hint" />
 
         <!-- Button for emojis -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/smile"
-            style="@style/Theme.InLife.Btns"
+            android:id="@+id/messenger_chat_bottom_panel_emojis"
+            style="@style/Theme.InLife.Buttons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_weight="1"
-            app:icon="@drawable/ic_smile_16px"
-            app:layout_constraintBottom_toTopOf="@+id/message_bottom_panel"
+            app:icon="@drawable/ic_emojis"
+            app:layout_constraintBottom_toTopOf="@+id/messenger_chat_bottom_panel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <!-- Button for voice input -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/voice"
-            style="@style/Theme.InLife.Btns"
+            android:id="@+id/messenger_chat_bottom_panel_voice"
+            style="@style/Theme.InLife.Buttons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_weight="1"
-            app:icon="@drawable/ic_voice_16px"
-            app:layout_constraintBottom_toTopOf="@+id/message_bottom_panel"
+            app:icon="@drawable/ic_voice"
+            app:layout_constraintBottom_toTopOf="@+id/messenger_chat_bottom_panel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
     </LinearLayout>

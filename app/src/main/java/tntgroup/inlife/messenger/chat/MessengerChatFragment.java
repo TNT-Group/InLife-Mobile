@@ -2,18 +2,16 @@ package tntgroup.inlife.messenger.chat;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -70,42 +68,67 @@ public class MessengerChatFragment extends Fragment {
         setupToolbar(view);
         setupMessageList(view);
 
+        // Setup listeners for bottom bar buttons
+        Button additions = view.findViewById(R.id.messenger_chat_bottom_panel_additions),
+                emojis = view.findViewById(R.id.messenger_chat_bottom_panel_emojis),
+                voice = view.findViewById(R.id.messenger_chat_bottom_panel_voice);
+        additions.setOnClickListener(this::onAdditionsClick);
+        emojis.setOnClickListener(this::onEmojisClick);
+        voice.setOnClickListener(this::onVoiceClick);
+
         return view;
     }
+
+    /**
+     * Method for additions click event
+     */
+    private void onAdditionsClick(View view) {}
+
+    /**
+     * Method for emojis click event
+     */
+    private void onEmojisClick(View view) {}
+
+    /**
+     * Method for voice input click event
+     */
+    private void onVoiceClick(View view) {}
 
     /**
      * Method for setting up a top app bar of fragment
      *
      * @param view inflated view in method {@link MessengerChatFragment#onCreateView}
      */
-    @SuppressLint("NonConstantResourceId")
     private void setupToolbar(View view) {
-        final AppCompatActivity activity = (AppCompatActivity) getActivity();
         final Toolbar toolbar = view.findViewById(R.id.messenger_chat_toolbar);
-        if (activity != null) {
-            final ActionBar actionBar = activity.getSupportActionBar();
-            if (actionBar != null) {
-                actionBar.setDisplayShowTitleEnabled(false);
-            }
-        }
 
         // Set menu item listener for top app bar
-        toolbar.setOnMenuItemClickListener(item -> {
-            switch (item.getItemId()) {
-                case R.id.messenger_chat_toolbar_search:
-                case R.id.messenger_chat_toolbar_overflow_menu:
-                    return true;
-            }
-            return false;
-        });
+        toolbar.setOnMenuItemClickListener(this::onTopToolbarItemClick);
 
         // Set navigation icon listener for top app bar
         // (actually, implement "back" behaviour of navigation icon)
+        final AppCompatActivity activity = (AppCompatActivity) getActivity();
         toolbar.setNavigationOnClickListener(v -> {
             if (activity != null) {
                 activity.onBackPressed();
             }
         });
+    }
+
+    /**
+     * Listener for top toolbar items
+     *
+     * @param item item that was pressed
+     * @return if any item was pressed
+     */
+    @SuppressLint("NonConstantResourceId")
+    private boolean onTopToolbarItemClick(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.messenger_chat_toolbar_search:
+            case R.id.messenger_chat_toolbar_overflow_menu:
+                return true;
+        }
+        return false;
     }
 
     /**
@@ -135,36 +158,5 @@ public class MessengerChatFragment extends Fragment {
             messageList.add(new Message(text1, "00:00", i % 2 == 0));
         }
         return messageList;
-    }
-
-    /**
-     * A lass for bottom panel in messenger chat
-     */
-    private class BottomPanel {
-        private Button smile;
-        private Button additions;
-        private Button voice;
-
-        private EditText message;
-
-        BottomPanel(View rootView)
-        {
-            smile = rootView.findViewById(R.id.smile);
-            smile.setOnClickListener(v -> onSmileClick());
-            additions = rootView.findViewById(R.id.additions);
-            additions.setOnClickListener(v -> onAdditionsClick());
-            voice = rootView.findViewById(R.id.voice);
-            voice.setOnClickListener(v -> onVoiceClick());
-            message = rootView.findViewById(R.id.message);
-        }
-
-        public void onSmileClick()
-        {}
-        public void onAdditionsClick()
-        {}
-        public void onVoiceClick()
-        {}
-
-
     }
 }
