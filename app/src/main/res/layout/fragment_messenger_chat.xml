@@ -20,12 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:navigationIcon="@drawable/ic_arrow_back"
-            app:menu="@menu/messenger_chat_toolbar_menu"
-            style="@style/Widget.MaterialComponents.Toolbar.Primary">
-
-            <!-- Place elements inside toolbar here -->
-
-        </com.google.android.material.appbar.MaterialToolbar>
+            app:menu="@menu/messenger_chat_toolbar_menu" />
 
     </com.google.android.material.appbar.AppBarLayout>
 

@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         final FragmentTransaction fragmentTransaction
                 = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.add(R.id.activity_fragment_container,
-                //BottomNavigationFragment.newInstance()
+//                BottomNavigationFragment.newInstance()
                 MessengerChatFragment.newInstance("")
         );
         fragmentTransaction.commit();

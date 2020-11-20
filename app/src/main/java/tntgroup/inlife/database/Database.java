@@ -12,7 +12,11 @@ import tntgroup.inlife.R;
  */
 public class Database {
 
+    /**
+     * Unique instance of class
+     */
     private static volatile Database instance;
+
     /**
      * Get unique instance of {@link Database} class
      * (Double Check Locking)

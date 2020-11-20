@@ -20,8 +20,15 @@ import tntgroup.inlife.messenger.MessengerFragment;
  */
 public class MessengerChatFragment extends Fragment {
 
+    /**
+     * Key to get {@link userId} parameter
+     * of fragment from the {@link Bundle}
+     */
     private static final String USER_ID_KEY = "userId";
 
+    /**
+     * ID of user you are chatting with
+     */
     private String userId;
 
     /**
@@ -52,7 +59,8 @@ public class MessengerChatFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_messenger_chat, container, false);
+        View view = inflater.inflate(
+                R.layout.fragment_messenger_chat, container, false);
 
         // Setup fragment elements
         setupToolbar(view);
@@ -63,7 +71,7 @@ public class MessengerChatFragment extends Fragment {
     /**
      * Method for setting up a top app bar of fragment
      *
-     * @param view inflated view in method {@link MessengerFragment#onCreateView}
+     * @param view inflated view in method {@link MessengerChatFragment#onCreateView}
      */
     @SuppressLint("NonConstantResourceId")
     private void setupToolbar(View view) {

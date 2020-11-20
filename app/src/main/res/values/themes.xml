@@ -7,18 +7,24 @@
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryVariant">@android:color/black</item>
         <item name="colorOnPrimary">@color/dark_gray</item>
+
         <!-- Secondary brand color -->
         <item name="colorSecondary">@android:color/white</item>
         <item name="colorSecondaryVariant">@android:color/black</item>
         <item name="colorOnSecondary">@android:color/black</item>
+
         <!-- Status bar color -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+
         <!-- Customize your theme here -->
         <item name="colorAccent">@color/dark_indigo</item>
         <item name="android:windowBackground">@android:color/white</item>
         <item name="colorSurface">@color/primary</item>
         <item name="colorOnSurface">@color/dark_gray</item>
         <item name="android:colorEdgeEffect">@color/dark_gray</item>
+
+        <!-- Style of toolbars of application -->
+        <item name="toolbarStyle">@style/Widget.MaterialComponents.Toolbar.Primary</item>
     </style>
 
 </resources>
