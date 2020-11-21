@@ -14,6 +14,7 @@
         android:layout_height="0dp"
         android:clipToPadding="false"
         android:paddingBottom="@dimen/messenger_list_vertical_padding"
+        android:background="@color/gray"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@+id/messenger_chat_bottom_panel"
         app:layout_constraintTop_toBottomOf="@+id/messenger_chat_app_bar_layout" />
