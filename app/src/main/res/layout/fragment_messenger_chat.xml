@@ -8,18 +8,21 @@
     tools:context=".messenger.chat.MessengerChatFragment">
 
     <!-- RecyclerView for messenger chat -->
+
+    <!-- AppBarLayout for top app bar -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/messages_list"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:background="@color/gray"
         android:clipToPadding="false"
         android:paddingBottom="@dimen/messenger_list_vertical_padding"
-        android:background="@color/gray"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@+id/messenger_chat_bottom_panel"
-        app:layout_constraintTop_toBottomOf="@+id/messenger_chat_app_bar_layout" />
+        app:layout_constraintTop_toBottomOf="@+id/messenger_chat_app_bar_layout"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteX="-99dp" />
 
-    <!-- AppBarLayout for top app bar -->
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/messenger_chat_app_bar_layout"
         android:layout_width="match_parent"
