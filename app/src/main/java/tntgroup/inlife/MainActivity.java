@@ -19,12 +19,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Navigate to BottomNavigationFragment for now
         final FragmentTransaction fragmentTransaction
                 = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.add(R.id.activity_fragment_container,
-//                BottomNavigationFragment.newInstance()
-                MessengerChatFragment.newInstance("")
+                BottomNavigationFragment.newInstance()
+//                MessengerChatFragment.newInstance("")
         );
         fragmentTransaction.commit();
     }

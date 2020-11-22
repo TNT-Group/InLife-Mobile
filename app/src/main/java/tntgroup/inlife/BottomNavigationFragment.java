@@ -23,6 +23,16 @@ import tntgroup.inlife.messenger.MessengerFragment;
  */
 public class BottomNavigationFragment extends Fragment {
 
+    /**
+     * Instance on messenger fragment in container
+     */
+    private MessengerFragment messengerFragment;
+
+    /**
+     * Instance on current fragment in container
+     */
+    private Fragment currentFragment;
+
     /* Define parameters and their keys here */
 
     /**
@@ -72,44 +82,83 @@ public class BottomNavigationFragment extends Fragment {
      */
     @SuppressLint("NonConstantResourceId")
     private boolean onBottomNavigationBarItemSelected(@NonNull MenuItem item) {
-        // Get activity attached to this fragment
-        final AppCompatActivity activity = (AppCompatActivity) getActivity();
-        if (activity != null) {
-            // Get instances of FragmentManager of this activity
-            final FragmentManager fragmentManager = activity.getSupportFragmentManager();
-            // Get instance of transaction that was just begun
-            final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-            // Do tasks if one of navigation items was selected
-            final Fragment previousFragment = fragmentManager.findFragmentById(
-                    R.id.bottom_navigation_fragment_container);
-            switch (item.getItemId()) {
-                case R.id.navigation_love:
-                case R.id.navigation_search:
-                case R.id.navigation_settings:
-                    // Temporarily remove fragment from the container
-                    if (previousFragment != null) {
-                        fragmentTransaction.remove(previousFragment);
-                    }
-                    break;
-                case R.id.navigation_messenger:
-                    // "Messenger" was selected
-                    if (previousFragment instanceof MessengerFragment) {
-                        break;
-                    }
-                    fragmentTransaction.replace(
-                            R.id.bottom_navigation_fragment_container,
-                            MessengerFragment.newInstance()
-                    );
-                    break;
-                default:
-                    // If none of items was not selected
-                    fragmentTransaction.commit();
-                    return false;
-            }
-            fragmentTransaction.commit();
-            return true;
+        switch (item.getItemId()) {
+            case R.id.navigation_love:
+                showLove();
+                return true;
+            case R.id.navigation_search:
+                showSearch();
+                return true;
+            case R.id.navigation_settings:
+                showSettings();
+                return true;
+            case R.id.navigation_messenger:
+                showMessenger();
+                return true;
         }
         return false;
+    }
+
+    /**
+     * Method to show "Messenger" in container
+     */
+    private void showMessenger() {
+        // Do not replace same fragment
+        if (currentFragment instanceof MessengerFragment) {
+            return;
+        }
+
+        final FragmentManager fragmentManager = getChildFragmentManager();
+        final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        // Create messenger fragment if needed
+        if (messengerFragment == null) {
+            messengerFragment = MessengerFragment.newInstance();
+        }
+        // Hide current fragment
+        if (currentFragment != null) {
+            fragmentTransaction.hide(currentFragment);
+        }
+        // Show messenger fragment
+        if (!messengerFragment.isAdded()) {
+            fragmentTransaction.add(
+                    R.id.bottom_navigation_fragment_container,
+                    messengerFragment
+            );
+        }
+        fragmentTransaction.show(messengerFragment);
+
+        currentFragment = messengerFragment;
+        fragmentTransaction.commit();
+    }
+
+    /**
+     * Method to show "Settings" in container
+     */
+    private void showSettings() {
+        // todo
+        // Hide current fragment
+        if (currentFragment != null) {
+            final FragmentManager fragmentManager = getChildFragmentManager();
+            final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.hide(currentFragment);
+            fragmentTransaction.commit();
+        }
+        currentFragment = null;
+    }
+
+    /**
+     * Method to show "Love" in container
+     */
+    private void showLove() {
+        // todo
+        showSettings();
+    }
+
+    /**
+     * Method to show "Search" in container
+     */
+    private void showSearch() {
+        // todo
+        showSettings();
     }
 }
