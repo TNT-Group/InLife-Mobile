@@ -15,8 +15,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:itemIconTint="@drawable/navigation_item_color_state"
-        app:itemTextColor="@drawable/navigation_item_color_state"
+        app:itemIconTint="@color/item_state"
+        app:itemTextColor="@color/item_state"
         app:menu="@menu/bottom_navigation_menu"
         app:labelVisibilityMode="labeled" />
 

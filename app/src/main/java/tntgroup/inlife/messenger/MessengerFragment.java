@@ -2,21 +2,19 @@ package tntgroup.inlife.messenger;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import java.util.Arrays;
+import java.util.List;
 
 import tntgroup.inlife.R;
-import tntgroup.inlife.database.Database;
 
 /**
  * A {@link Fragment} subclass which represents
@@ -53,25 +51,14 @@ public class MessengerFragment extends Fragment {
         }
     }
 
-    /**
-     * Inflate the contents of messenger_toolbar_menu.xml into the toolbar
-     */
-    @Override
-    public void onCreateOptionsMenu(@NonNull Menu menu, MenuInflater menuInflater) {
-        menuInflater.inflate(R.menu.messenger_toolbar_menu, menu);
-        super.onCreateOptionsMenu(menu, menuInflater);
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_messenger, container, false);
 
-        // Get current activity
-        AppCompatActivity activity = (AppCompatActivity) getActivity();
-
-        setupToolbar(view, activity);
+        // Setup fragment elements
+        setupToolbar(view);
         setupMessageGroupList(view);
 
         return view;
@@ -81,24 +68,26 @@ public class MessengerFragment extends Fragment {
      * Method for setting up a top app bar of fragment
      *
      * @param view inflated view in method {@link MessengerFragment#onCreateView}
-     * @param activity current activity of fragment
+     */
+    private void setupToolbar(View view) {
+        final Toolbar toolbar = view.findViewById(R.id.messenger_toolbar);
+        // Set listener for top app bar
+        toolbar.setOnMenuItemClickListener(this::onTopToolbarItemClick);
+    }
+
+    /**
+     * Listener for top toolbar items
+     *
+     * @param item item that was pressed
+     * @return if any item was pressed
      */
     @SuppressLint("NonConstantResourceId")
-    private void setupToolbar(View view, AppCompatActivity activity) {
-        Toolbar toolbar = view.findViewById(R.id.messenger_toolbar);
-        if (activity != null) {
-            activity.setSupportActionBar(toolbar);
+    private boolean onTopToolbarItemClick(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.messenger_toolbar_search:
+                return true;
         }
-
-        // Set listener for top app bar
-        toolbar.setOnMenuItemClickListener(item -> {
-            switch (item.getItemId()) {
-                // "Search" was pressed
-                case R.id.messenger_toolbar_search:
-                    return true;
-            }
-            return false;
-        });
+        return false;
     }
 
     /**
@@ -107,9 +96,32 @@ public class MessengerFragment extends Fragment {
      * @param view inflated view in method {@link MessengerFragment#onCreateView}
      */
     private void setupMessageGroupList(View view) {
-        RecyclerView recyclerView = view.findViewById(R.id.messenger_list);
-        MessengerAdapter adapter = new MessengerAdapter(view.getContext(),
-                Database.getInstance().getMessageGroups());
+        final RecyclerView recyclerView = view.findViewById(R.id.messenger_list);
+        final MessengerAdapter adapter = new MessengerAdapter(
+                view.getContext(), getMessageGroups()
+        );
         recyclerView.setAdapter(adapter);
+    }
+
+    /**
+     * Get message groups for {@link MessengerFragment}'s
+     * list (which is {@link androidx.recyclerview.widget.RecyclerView})
+     * for current user
+     *
+     * @return list of message groups
+     */
+    public List<MessageGroup> getMessageGroups() {
+        MessageGroup messageGroup = new MessageGroup(
+                0, "Hello World!",
+                false, "Surname Name",
+                R.drawable.ic_navigation_love
+        );
+        return Arrays.asList(
+                messageGroup, messageGroup, messageGroup, messageGroup,
+                messageGroup, messageGroup, messageGroup, messageGroup,
+                messageGroup, messageGroup, messageGroup, messageGroup,
+                messageGroup, messageGroup, messageGroup, messageGroup,
+                messageGroup, messageGroup, messageGroup, messageGroup
+        );
     }
 }

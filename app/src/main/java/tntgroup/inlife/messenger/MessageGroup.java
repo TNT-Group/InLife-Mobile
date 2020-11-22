@@ -4,11 +4,9 @@ package tntgroup.inlife.messenger;
  * Class for holding data to show in messenger list
  */
 public class MessageGroup {
-
     private int unreadMessageCount;
     private String lastMessage;
     private boolean muted;
-
     private String userName;
     private int userAvatar;
 

@@ -1,14 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".messenger.chat.MessengerChatFragment">
 
+    <!-- RecyclerView for messenger chat -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/messages_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/messenger_list_vertical_padding"
+        android:background="@color/gray"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/messenger_chat_bottom_panel"
+        app:layout_constraintTop_toBottomOf="@+id/messenger_chat_app_bar_layout" />
 
+    <!-- AppBarLayout for top app bar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/messenger_chat_app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Tool bar -->
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/messenger_chat_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:contentInsetLeft="0dp"
+            app:contentInsetStart="0dp"
+            app:contentInsetStartWithNavigation="0dp"
+            app:logo="@drawable/ic_navigation_love"
+            app:menu="@menu/messenger_chat_toolbar_menu">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/messenger_chat_toolbar_user_name"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textAlignment="center"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="10dp" />
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Bottom toolbar for message input -->
     <LinearLayout
-        android:id="@+id/message_bottom_panel"
+        android:id="@+id/messenger_chat_bottom_panel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -17,53 +65,55 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent">
 
+        <!-- Button for additions -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/additions"
-            style="@style/Theme.InLife.Btns"
+            android:id="@+id/messenger_chat_bottom_panel_additions"
+            style="@style/Theme.InLife.Buttons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_weight="1"
-            app:icon="@drawable/ic_additions_16px"
-            app:layout_constraintBottom_toTopOf="@+id/message_bottom_panel"
+            app:icon="@drawable/ic_additions"
+            app:layout_constraintBottom_toTopOf="@+id/messenger_chat_bottom_panel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-
+        <!-- Text field for message -->
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/message"
-            android:backgroundTint="@color/abs_white"
+            android:id="@+id/messenger_chat_bottom_panel_edit_text"
+            android:backgroundTint="@color/transparent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="3"
             android:inputType="textMultiLine"
             android:maxLines="5"
-            android:hint="@string/messenger_chat_bottom_bar_massage_hint"/>
+            android:hint="@string/messenger_chat_bottom_bar_message_hint" />
 
+        <!-- Button for emojis -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/smile"
-            style="@style/Theme.InLife.Btns"
+            android:id="@+id/messenger_chat_bottom_panel_emojis"
+            style="@style/Theme.InLife.Buttons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_weight="1"
-            app:icon="@drawable/ic_smile_16px"
-            app:layout_constraintBottom_toTopOf="@+id/message_bottom_panel"
+            app:icon="@drawable/ic_emojis"
+            app:layout_constraintBottom_toTopOf="@+id/messenger_chat_bottom_panel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
+        <!-- Button for voice input -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/voice"
-            style="@style/Theme.InLife.Btns"
+            android:id="@+id/messenger_chat_bottom_panel_voice"
+            style="@style/Theme.InLife.Buttons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_weight="1"
-            app:icon="@drawable/ic_voice_16px"
-            app:layout_constraintBottom_toTopOf="@+id/message_bottom_panel"
+            app:icon="@drawable/ic_voice"
+            app:layout_constraintBottom_toTopOf="@+id/messenger_chat_bottom_panel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

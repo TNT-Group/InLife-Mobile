@@ -1,14 +1,21 @@
 <resources>
     <!-- General information -->
     <string name="app_name">InLife</string>
+
     <!-- Bottom navigation strings -->
     <string name="navigation_love">Love</string>
     <string name="navigation_search">Search</string>
     <string name="navigation_messenger">Messenger</string>
     <string name="navigation_settings">Settings</string>
+
     <!-- Messenger toolbar strings -->
     <string name="messenger_toolbar_messages">Messages</string>
     <string name="messenger_toolbar_search">Search</string>
-    <!-- MessengerChat bottom bar strings -->
-    <string name="messenger_chat_bottom_bar_massage_hint">Введите сообщение</string>
+
+    <!-- Messenger chat toolbar strings -->
+    <string name="messenger_chat_toolbar_overflow_menu">Menu</string>
+    <string name="messenger_chat_toolbar_user_name">Name Surname</string>
+
+    <!-- Messenger chat bottom bar strings -->
+    <string name="messenger_chat_bottom_bar_message_hint">Input message</string>
 </resources>

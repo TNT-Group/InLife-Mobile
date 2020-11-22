@@ -7,34 +7,33 @@
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryVariant">@android:color/black</item>
         <item name="colorOnPrimary">@color/dark_gray</item>
+
         <!-- Secondary brand color -->
         <item name="colorSecondary">@android:color/white</item>
         <item name="colorSecondaryVariant">@android:color/black</item>
         <item name="colorOnSecondary">@android:color/black</item>
+
         <!-- Status bar color -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+
         <!-- Customize your theme here -->
+        <item name="colorAccent">@color/dark_indigo</item>
         <item name="android:windowBackground">@android:color/white</item>
         <item name="colorSurface">@color/primary</item>
         <item name="colorOnSurface">@color/dark_gray</item>
         <item name="android:colorEdgeEffect">@color/dark_gray</item>
+
+        <!-- Style of toolbars of application -->
+        <item name="toolbarStyle">@style/Widget.MaterialComponents.Toolbar.Primary</item>
     </style>
 
-    <!-- Theme for btns in bottom panel in messenger chat -->
-    <style name="Theme.InLife.Btns" parent="Theme.InLife">
-        <item name="iconTint">@color/btn_icon_tint</item>
+    <!-- Theme for buttons in bottom panel in messenger chat -->
+    <style name="Theme.InLife.Buttons" parent="Theme.InLife">
+        <item name="iconTint">@color/item_state</item>
         <item name="android:stateListAnimator">@null</item> <!-- Delete shadow -->
         <item name="iconGravity">textStart</item>
         <item name="iconPadding">0dp</item>
         <item name="android:background">@color/transparent</item> <!-- Delete press animation -->
     </style>
-
-    <!-- Theme for text input field in bottom panel in messenger chat -->
-    <style name="Theme.InLife.Input" parent="Theme.InLife">
-        <item name="android:ems">10</item>
-        <item name="android:inputType">textMultiLine</item>
-        <item name="maxLines">5</item>
-    </style>
-
 
 </resources>

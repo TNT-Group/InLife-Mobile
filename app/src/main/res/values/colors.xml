@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <!-- Base app colors -->
+    <!-- Basic app colors -->
     <color name="primary">#FFF0EDF8</color> <!-- element_background -->
     <color name="primary_dark">#FFE6E6F2</color>
     <color name="negative_button">#FFFF6347</color> <!-- tomato -->
@@ -13,8 +8,5 @@
     <color name="dark_indigo">#FF310062</color> <!-- Sexy dark indigo -->
     <color name="dark_gray">#FF696969</color> <!-- test5 -->
     <color name="gray">#FFC4C4C4</color>
-
-    <!-- Added by Nikita -->
-    <color name="abs_white">#FFFFFFFF</color>
     <color name="transparent">#00FFFFFF</color>
 </resources>

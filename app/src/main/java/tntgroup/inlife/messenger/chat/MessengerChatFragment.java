@@ -1,14 +1,20 @@
 package tntgroup.inlife.messenger.chat;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.LinkedList;
+import java.util.List;
 
 import tntgroup.inlife.R;
 
@@ -17,8 +23,15 @@ import tntgroup.inlife.R;
  */
 public class MessengerChatFragment extends Fragment {
 
+    /**
+     * Key to get userId parameter
+     * of fragment from the {@link Bundle}
+     */
     private static final String USER_ID_KEY = "userId";
 
+    /**
+     * ID of user you are chatting with
+     */
     private String userId;
 
     /**
@@ -49,37 +62,101 @@ public class MessengerChatFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_messenger_chat, container, false);
+        View view = inflater.inflate(R.layout.fragment_messenger_chat, container, false);
+
+        // Setup fragment elements
+        setupToolbar(view);
+        setupMessageList(view);
+
+        // Setup listeners for bottom bar buttons
+        Button additions = view.findViewById(R.id.messenger_chat_bottom_panel_additions),
+                emojis = view.findViewById(R.id.messenger_chat_bottom_panel_emojis),
+                voice = view.findViewById(R.id.messenger_chat_bottom_panel_voice);
+        additions.setOnClickListener(this::onAdditionsClick);
+        emojis.setOnClickListener(this::onEmojisClick);
+        voice.setOnClickListener(this::onVoiceClick);
+
+        return view;
     }
 
     /**
-     * A lass for bottom panel in messenger chat
+     * Method for additions click event
      */
-    private class BottomPanel {
-        private Button smile;
-        private Button additions;
-        private Button voice;
+    private void onAdditionsClick(View view) {}
 
-        private EditText message;
+    /**
+     * Method for emojis click event
+     */
+    private void onEmojisClick(View view) {}
 
-        BottomPanel(View rootView)
-        {
-            smile = rootView.findViewById(R.id.smile);
-            smile.setOnClickListener(v -> onSmileClick());
-            additions = rootView.findViewById(R.id.additions);
-            additions.setOnClickListener(v -> onAdditionsClick());
-            voice = rootView.findViewById(R.id.voice);
-            voice.setOnClickListener(v -> onVoiceClick());
-            message = rootView.findViewById(R.id.message);
+    /**
+     * Method for voice input click event
+     */
+    private void onVoiceClick(View view) {}
+
+    /**
+     * Method for setting up a top app bar of fragment
+     *
+     * @param view inflated view in method {@link MessengerChatFragment#onCreateView}
+     */
+    private void setupToolbar(View view) {
+        final Toolbar toolbar = view.findViewById(R.id.messenger_chat_toolbar);
+
+        // Set menu item listener for top app bar
+        toolbar.setOnMenuItemClickListener(this::onTopToolbarItemClick);
+
+        // Set navigation icon listener for top app bar
+        // (actually, implement "back" behaviour of navigation icon)
+        final AppCompatActivity activity = (AppCompatActivity) getActivity();
+        toolbar.setNavigationOnClickListener(v -> {
+            if (activity != null) {
+                activity.onBackPressed();
+            }
+        });
+    }
+
+    /**
+     * Listener for top toolbar items
+     *
+     * @param item item that was pressed
+     * @return if any item was pressed
+     */
+    @SuppressLint("NonConstantResourceId")
+    private boolean onTopToolbarItemClick(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.messenger_chat_toolbar_search:
+            case R.id.messenger_chat_toolbar_overflow_menu:
+                return true;
         }
+        return false;
+    }
 
-        public void onSmileClick()
-        {}
-        public void onAdditionsClick()
-        {}
-        public void onVoiceClick()
-        {}
+    /**
+     * Method for setting up a message list
+     *
+     * @param view inflated view in method {@link MessengerChatFragment#onCreateView}
+     */
+    private void setupMessageList(View view) {
+        RecyclerView recyclerView = view.findViewById(R.id.messages_list);
+        MessengerChatAdapter adapter = new MessengerChatAdapter(getMessageList());
+        recyclerView.setAdapter(adapter);
+    }
 
-
+    private List<Message> getMessageList() {
+        List<Message> messageList = new LinkedList<>();
+        String text1 = "RecyclerView makes it easy to efficiently " +
+                "display large sets of data. You supply the data and" +
+                " define how each item looks, and the RecyclerView library" +
+                " dynamically creates the elements when they're needed.\n" +
+                "\n" +
+                "As the name implies, RecyclerView recycles those individual " +
+                "elements. When an item scrolls off the screen, RecyclerView doesn't" +
+                " destroy its view. Instead, RecyclerView reuses the view for new items" +
+                " that have scrolled onscreen. This reuse vastly improves performance, " +
+                "improving your app's responsiveness and reducing power consumption. ";
+        for (int i = 1; i < 21; i++) {
+            messageList.add(new Message(text1, "00:00", i % 2 == 0));
+        }
+        return messageList;
     }
 }

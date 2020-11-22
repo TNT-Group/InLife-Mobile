@@ -9,11 +9,11 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/messenger_item_shape">
+    android:background="@drawable/item_shape_primary">
 
     <!-- User avatar -->
     <ImageView
-        android:src="@drawable/ic_navigation_love_24px"
+        android:src="@drawable/ic_navigation_love"
         android:id="@+id/messenger_item_user_avatar"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
@@ -25,26 +25,30 @@
         tools:ignore="ContentDescription" />
 
     <!-- User name -->
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/messenger_item_user_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/app_name"
         android:textAlignment="textStart"
         android:textColor="@android:color/black"
+        android:maxLines="1"
+        android:ellipsize="end"
         android:layout_marginStart="@dimen/messenger_list_vertical_padding"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/messenger_item_user_avatar"
         app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Last message -->
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/messenger_item_last_message"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/messenger_item_inner_shape"
+        android:background="@drawable/item_shape_primary_dark"
         android:text="@string/app_name"
         android:textAlignment="textStart"
+        android:maxLines="2"
+        android:ellipsize="end"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/messenger_item_user_name"
